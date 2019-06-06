@@ -10,6 +10,7 @@ export default class Recipe extends Component {
             publisher,
             recipe_id
         } = this.props.recipe;
+const{ handleDetails } = this.props;          
 
         return (
                 <div className="col-10 mx-auto col-md-6 col-lg-4 my-3">
@@ -28,7 +29,9 @@ export default class Recipe extends Component {
                         </div>
                         <div className="card-footer">
                             <button type="button"
-                            className="btn btn-primary text-capitalize">
+                            className="btn btn-primary text-capitalize"
+                            onClick={()=>handleDetails(0,recipe_id)}
+                            >
                             details
                             </button>
                             <a 

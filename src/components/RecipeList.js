@@ -4,7 +4,7 @@ import RecipeSearch from './RecipeSearch';
 
 export default class RecipeList extends Component {
     render() {
-        const { recipes } = this.props;
+        const { recipes, handleDetails } = this.props;
         return (
             <div>
                 <RecipeSearch></RecipeSearch>
@@ -22,8 +22,10 @@ export default class RecipeList extends Component {
                         return(
                             <Recipe
                             key={recipe.recipe_id}
-                            recipe={recipe}/>
-                        )
+                            recipe={recipe}
+                            handleDetails={handleDetails}
+                            />
+                        );
                     })
                 }
                 </div>
