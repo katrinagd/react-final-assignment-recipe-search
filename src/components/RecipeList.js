@@ -9,7 +9,8 @@ export default class RecipeList extends Component {
             handleDetails, 
             value, 
             handleSubmit, 
-            handleChange
+            handleChange,
+            error
         } = this.props;
         return (
             <div>
@@ -25,8 +26,11 @@ export default class RecipeList extends Component {
                     </div>
                 {/* end of title */}
                 <div className="row">
-                {
-                    recipes.map(recipe =>{
+                {error ? (
+                    <p className="text-center">{error}
+                    </p>
+                ) : (
+                    recipes.map(recipe => {
                         return(
                             <Recipe
                             key={recipe.recipe_id}
@@ -35,7 +39,7 @@ export default class RecipeList extends Component {
                             />
                         );
                     })
-                }
+                )}
                 </div>
                 </div>
             </div>
