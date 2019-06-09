@@ -8,8 +8,11 @@ export default class App extends Component {
   state = {
     recipes: recipes,
     url:"https://www.food2fork.com/api/search?key=c27d28f4e6f740f30133e1d84a726ca9",
+    base_url:"https://www.food2fork.com/api/search?key=c27d28f4e6f740f30133e1d84a726ca9",
     details_id: 35390,
-    pageIndex: 1
+    pageIndex: 1,
+    search:"",
+    query:'&q='
   };
   async getRecipes(){
     try{
@@ -23,9 +26,9 @@ export default class App extends Component {
     }
   }
 
-  componentDidMount() {
-    this.getRecipes();
-  }
+  // componentDidMount() {
+  //   this.getRecipes();
+  // }
 
   displayPage = (index) => {
     switch(index){
@@ -35,6 +38,9 @@ export default class App extends Component {
             <RecipeList 
               recipes={this.state.recipes}
               handleDetails={this.handleDetails}
+              value={this.state.search}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
             />
           );
         case 0:
@@ -57,6 +63,27 @@ export default class App extends Component {
       pageIndex: index,
       details_id: id
     });
+  };
+  handleChange = (e) =>{
+    this.setState({
+      search:e.target.value
+    },()=>{
+      console.log('this.state.search')
+    })
+  }
+
+  handleSubmit = (e) =>{
+    e.preventDefault();
+    const{ base_url, query, search } = this.state;
+
+    this.setState(
+      () => {
+      return { url:`${base_url}${query}${search}`,search:""};
+    },
+    () => {
+      this.getRecipes();
+    }
+    );
   };
 
   render() {

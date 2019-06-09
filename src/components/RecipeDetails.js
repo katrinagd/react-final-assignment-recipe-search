@@ -60,7 +60,7 @@ export default class RecipeDetails extends Component {
                 <div className="row">
                     <div className="col-10 mx-auto col-md-6 my-3">
                         <button type="button"
-                                className="btn btn-warning mb-5 text-capitalize"
+                                className="btn btn-info mb-5 text-capitalize"
                                 onClick={()=>handleIndex(1)}
                                 >
                                 back to recipe list
@@ -77,13 +77,13 @@ export default class RecipeDetails extends Component {
                         <h6 className="text-capitalized text-bolded">provided by {publisher}</h6>
                         <a 
                             href={publisher_url} 
-                            className="btn btn-primary mt-2 text-capitalize" 
+                            className="btn btn-secondary mt-2 text-capitalize" 
                             target="_blank"
                             rel="noopener noreferrer">
                             publisher webpage</a>
                         <a 
                             href={source_url} 
-                            className="btn btn-success mt-2 mx-3 text-capitalize" 
+                            className="btn btn-info mt-2 mx-3 text-capitalize" 
                             target="_blank"
                             rel="noopener noreferrer">
                             recipe url</a>
