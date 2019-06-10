@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 export default class Recipe extends Component {
     render() {
-        console.log(this.props.recipe);
+        // console.log(this.props.recipe);
         const {
             image_url,
             title,

@@ -19,7 +19,7 @@ export default class App extends Component {
     try{
       const data = await fetch(this.state.url);
       const jsonData = await data.json();
-      console.log(jsonData);
+      // console.log(jsonData);
     if(jsonData.recipes.length === 0){
       this.setState(()=>{
         return{error:'sorry, but your search did not return any results'}
@@ -78,7 +78,7 @@ export default class App extends Component {
     this.setState({
       search:e.target.value
     },()=>{
-      console.log('this.state.search')
+      // console.log('this.state.search')
     })
   }
 
